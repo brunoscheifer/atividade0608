@@ -1,12 +1,20 @@
 let usuarios = require('./usuarios');
 
 function listarUsuarios() {
-    usuarios.forEach((usuario, index) => {
-        console.log(`${index + 1}.   ID: ${usuario.id}
+    for(i = 0; i < usuarios.length; i++) {
+        const usuario = usuarios[i]
+    
+        console.log(`
+        ID: ${usuario.id}
         Nome: ${usuario.nome}
-        Email: ${usuario.email}
-        Telefone: ${usuario.telefone}`)
-    })       
+        Email: ${usuario.email}`)
+            
+        for (let o = 0; o < usuario.telefones.length; o++) {
+            console.log(` ${o + 1}. ${usuario.telefones[o]}`);
+        }
+        console.log('');
+    }
 }
+
 
 module.exports = listarUsuarios

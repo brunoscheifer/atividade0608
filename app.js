@@ -24,28 +24,45 @@ switch(opcao) {
         break;
     case '2':
         let nome = prompt('Qual o nome?: ')
-        let email = prompt('Qual o email?: ')
-        let telefone = prompt('Qual o telefone?: ')
         
-        adicionarUsuarios({ nome, email, telefone })
+        let telefones = []
+        let telefone
+        while ((telefone = prompt('Telefone (ou deixe em branco para sair): '))) {
+            telefones.push(telefone);
+        }
+        
+        let email = prompt('Qual o email?: ')
+        
+        adicionarUsuarios({ nome, email, telefones })
+        
         console.log('adicionado')
         exibirMenu()
         break;
     case '3':
-        index = parseInt(prompt('Qual usuario deseja atualizar?: ')) - 1
+        listarUsuarios()
 
-        let novoNome = prompt('Qual o novo nome')
-        let novoEmail = prompt('Qual o novo email')
-        let novoTelefone = prompt('Qual o novo telefone')
-
-        atualizarUsuarios({nome: novoNome, email: novoEmail, telefone: novoTelefone})
-
+        let id = parseInt(prompt('Qual usuario deseja atualizar?: '))
+        let novoNome = prompt('Qual o novo nome: ')
+        
+        let novosTelefones = []
+        let novoTelefone
+        
+        while((novoTelefone = prompt('Qual o novo telefone?: '))){
+            novosTelefones.push(novoTelefone)
+        }
+        let novoEmail = prompt('Qual o novo email?: ')
+        
+        atualizarUsuarios(id, {nome: novoNome, email: novoEmail, telefones: novosTelefones})
+        
+        console.log('Usuario atualizado!')
         exibirMenu()
         break;
     case '4':
-        index = parseInt(prompt('Qual usuario deseja atualizar?: ')) - 1
+        listarUsuarios()
 
-        removerUsuarios(index)
+        let id2 = parseInt(prompt('Qual usuario deseja remover?: '))
+
+        removerUsuarios(id2)
         console.log('Removido')
 
         exibirMenu()
