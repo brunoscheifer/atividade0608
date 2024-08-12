@@ -41,7 +41,7 @@ switch(opcao) {
     case '3':
         listarUsuarios()
 
-        let id = parseInt(prompt('Qual usuario deseja atualizar?: '))
+        let id = parseInt(prompt('Qual ID do usuario que deseja atualizar?: '))
         let novoNome = prompt('Qual o novo nome: ')
         
         let novosTelefones = []
@@ -60,10 +60,9 @@ switch(opcao) {
     case '4':
         listarUsuarios()
 
-        let id2 = parseInt(prompt('Qual usuario deseja remover?: '))
+        let id2 = parseInt(prompt('Qual ID do suario que deseja remover?: '))
 
         removerUsuarios(id2)
-        console.log('Removido')
 
         exibirMenu()
         break;

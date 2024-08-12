@@ -16,5 +16,4 @@ function listarUsuarios() {
     }
 }
 
-
 module.exports = listarUsuarios
